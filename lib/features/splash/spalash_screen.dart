@@ -1,9 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
+import 'package:dartx/dartx.dart';
+import 'package:productive/features/home/home_screen.dart';
+import 'package:productive/utils/extensions/navigation_extension.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen();
+
+  @override
+  _SplashScreenState createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    context.navigateTo(const HomeScreen(), delay: 2.seconds);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,12 +52,26 @@ class SplashScreenBody extends StatelessWidget {
         const Spacer(
           flex: 3,
         ),
-        Text(
-          "Productive",
-          style: Theme.of(context).textTheme.headline2.copyWith(
-                fontWeight: FontWeight.w700,
-                color: Colors.blue,
-              ),
+        ShaderMask(
+          blendMode: BlendMode.srcIn,
+          shaderCallback: (Rect bound) {
+            return const LinearGradient(
+              colors: [
+                Color(0xFF01A4FF),
+                Color(0xFF0186FF),
+              ],
+              begin: Alignment(-1.0, -8.0),
+              end: Alignment(1.0, 4.0),
+            ).createShader(bound);
+          },
+          child: Text(
+            "Productive",
+            style: TextStyle(
+              fontWeight: FontWeight.w700,
+              fontSize: 64,
+              color: Colors.blue,
+            ),
+          ),
         ),
         const Spacer(
           flex: 5,
