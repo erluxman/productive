@@ -13,13 +13,14 @@ dependencies:
   # UI
   google_fonts: ^1.1.0
   flutter_svg: ^0.17.4
-  #Data
-  cloud_firestore: ^0.13.6
+  lottie: ^0.4.0+1
+
   #Architecture
   rxdart: ^0.24.1
   get_it: ^4.0.2
+  provider: ^4.1.3
+
   #Utils
-  dartx: ^0.4.1
 
 dev_dependencies:
   flutter_test:
@@ -28,6 +29,9 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/lottie/paper_plane.json
+    - assets/images/google.svg
 
 # fonts Balsamiq+Sans, Poppins, Tenali, Rubik, Patrick Hand, Lobster two, Handlee, El Messiri, Alice,
 # Amaranth, Comic neue, Jost, Capriola, Combo, Reem Kufi, Cabin Sketch,Caladea,Cinzel, Cousard,Sen,

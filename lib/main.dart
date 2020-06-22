@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:productive/features/splash/spalash_screen.dart';
 
 void main() {
   runApp(ProductiveApp());
@@ -7,11 +8,21 @@ void main() {
 class ProductiveApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text(Name(abc: "Laxman").abc),
-        ),
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: SplashScreen(),
+    );
+  }
+}
+
+class HomeWidget extends StatelessWidget {
+  const HomeWidget();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Text(Name(abc: "Laxman").abc),
       ),
     );
   }
@@ -19,5 +30,6 @@ class ProductiveApp extends StatelessWidget {
 
 class Name {
   Name({this.abc = "Hello World"});
+
   String abc;
 }
