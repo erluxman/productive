@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:productive/features/splash/spalash_screen.dart';
+import 'package:productive/features/home/home_screen.dart';
 import 'package:productive/utils/design/colors.dart';
 
 void main() {
@@ -13,7 +13,7 @@ class ProductiveApp extends StatelessWidget {
       theme: ThemeData(
           fontFamily: 'Product Sans', primarySwatch: whiteMaterialColor),
       debugShowCheckedModeBanner: false,
-      home: const SplashScreen(),
+      home: const HomeScreen(),
     );
   }
 }

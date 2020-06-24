@@ -6,6 +6,7 @@ import 'package:productive/common/resources/strings.dart';
 import 'package:productive/features/home/home_screen.dart';
 import 'package:productive/utils/animation/animated_scale.dart';
 import 'package:productive/utils/extensions/navigation_extension.dart';
+import 'package:productive/utils/extensions/gradient_extensions.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen();
@@ -67,28 +68,14 @@ class SplashLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ShaderMask(
-      blendMode: BlendMode.srcIn,
-      shaderCallback: (Rect bound) {
-        return const LinearGradient(
-          colors: [
-            Color(0xFF00C2FF),
-            Color(0xFF0186FF),
-          ],
-          begin: Alignment(-1.0, -1.0),
-          end: Alignment(0.7, 0.7),
-          transform: GradientRotation(-3.14 / 4),
-        ).createShader(bound);
-      },
-      child: Text(
-        R.strings.appName,
-        style: TextStyle(
-          fontWeight: FontWeight.w700,
-          fontSize: 64,
-          color: Colors.blue,
-        ),
+    return Text(
+      R.strings.appName,
+      style: TextStyle(
+        fontWeight: FontWeight.w700,
+        fontSize: 64,
+        color: Colors.blue,
       ),
-    );
+    ).withBlueGradientFg();
   }
 }
 

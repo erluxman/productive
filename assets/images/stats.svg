@@ -1,13 +1,7 @@
 <svg width="29" height="28" viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g style="mix-blend-mode:multiply">
-<path d="M15.11 13.0148H28.2333C27.7537 6.04385 22.1391 0.475174 15.11 0V13.0148Z" fill="#01BBFF"/>
-<path d="M24.5216 23.4817C26.6384 21.205 28.0071 18.2331 28.2328 14.9484H15.9171L24.5216 23.4817Z" fill="#01A3FF"/>
-<path d="M13.1603 14.9484V0C5.80908 0.496927 0 6.56446 0 13.9816C0 21.7236 6.32866 28 14.1352 28C17.5423 28 20.6647 26.8017 23.1042 24.8101L13.1603 14.9484Z" fill="url(#paint0_linear)"/>
+<path d="M15.11 13.0148H28.2333C27.7537 6.04385 22.1391 0.475174 15.11 0V13.0148Z" fill="white"/>
+<path d="M24.5216 23.4818C26.6384 21.205 28.0071 18.2331 28.2328 14.9485H15.9171L24.5216 23.4818Z" fill="white"/>
+<path d="M13.1603 14.9484V0C5.80908 0.496927 0 6.56446 0 13.9816C0 21.7236 6.32866 28 14.1352 28C17.5423 28 20.6647 26.8017 23.1042 24.8101L13.1603 14.9484Z" fill="white"/>
 </g>
-<defs>
-<linearGradient id="paint0_linear" x1="11.5521" y1="0" x2="11.5521" y2="28" gradientUnits="userSpaceOnUse">
-<stop stop-color="#01BEFF"/>
-<stop offset="1" stop-color="#018CFF"/>
-</linearGradient>
-</defs>
 </svg>

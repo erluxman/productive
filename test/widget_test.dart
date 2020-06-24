@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:lottie/lottie.dart';
 import 'package:productive/common/resources/strings.dart';
-import 'package:productive/features/splash/spalash_screen.dart';
+import 'package:productive/features/splash/splash_screen.dart';
 import 'package:productive/main.dart';
 import 'package:productive/utils/animation/animated_scale.dart';
 

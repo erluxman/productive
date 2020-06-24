@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
+import 'package:productive/common/resources/strings.dart';
+import 'package:productive/utils/extensions/gradient_extensions.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen();
 
@@ -14,42 +15,39 @@ class HomeScreen extends StatelessWidget {
         title: const AppbarContent(),
         leading: null,
       ),
-      floatingActionButton: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 6),
-          child: RaisedButton(
-            onPressed: () {},
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(80.0)),
-            padding: const EdgeInsets.all(0.0),
-            child: Ink(
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Color(0xFF00C2FF),
-                    Color(0xFF0186FF),
-                  ],
-                  begin: Alignment(-1.0, -1.0),
-                  end: Alignment(0.7, 0.7),
-                  transform: GradientRotation(-3.14 / 4),
-                ),
-                borderRadius: BorderRadius.all(Radius.circular(80.0)),
-              ),
-              child: const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
-                child: Text(
-                  '+ Add Todo',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600),
-                ),
-              ),
-            ),
-          )),
+      floatingActionButton: const Fab(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: const BottomNav(),
     );
+  }
+}
+
+class Fab extends StatelessWidget {
+  const Fab({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 6),
+        child: RaisedButton(
+          onPressed: () {},
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(80.0)),
+          padding: const EdgeInsets.all(0.0),
+          child: const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
+            child: Text(
+              '+ Add Todo',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600),
+            ),
+          ).withBlueGradientBg(),
+        ));
   }
 }
 
@@ -70,7 +68,7 @@ class _BottomNavState extends State<BottomNav> {
     return Container(
       decoration: const BoxDecoration(boxShadow: [
         BoxShadow(
-            color: Color(0x22CCCCCC),
+            color: Color(0x33CCCCCC),
             offset: Offset(-4, -4),
             blurRadius: 8,
             spreadRadius: 8)
@@ -92,14 +90,18 @@ class _BottomNavState extends State<BottomNav> {
             padding: const EdgeInsets.all(16.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const <Widget>[
+              children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Icon(Icons.home),
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: SvgPicture.asset(
+                    R.svgImages.homeIcon,
+                  ).withGreyGradientFg(),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Icon(Icons.pie_chart),
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: SvgPicture.asset(
+                    R.svgImages.statsIcon,
+                  ).withBlueGradientFg(),
                 )
               ],
             ),
