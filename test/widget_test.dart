@@ -11,7 +11,9 @@ import 'test_utils.dart';
 void main() {
   group("Basic App Setup test", () {
     testWidgets('App Follows MaterialTheme', (WidgetTester tester) async {
-      await tester.pumpWidget(ProductiveApp());
+      await tester.pumpWidget(ProductiveApp(
+        testChild: Container(),
+      ));
       expect(find.byType(MaterialApp), findsOneWidget);
     });
   });
