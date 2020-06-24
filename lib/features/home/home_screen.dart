@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:productive/common/resources/strings.dart';
 import 'package:productive/utils/extensions/gradient_extensions.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen();
 
@@ -12,9 +13,8 @@ class HomeScreen extends StatelessWidget {
         child: Text("Hello world"),
       ),
       appBar: AppBar(
-        title: const AppbarContent(),
-        leading: null,
-      ),
+          title: const AppbarContent(),
+          automaticallyImplyLeading: false),
       floatingActionButton: const Fab(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: const BottomNav(),
@@ -33,8 +33,8 @@ class Fab extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 6),
         child: RaisedButton(
           onPressed: () {},
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(80.0)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
           padding: const EdgeInsets.all(0.0),
           child: const Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
