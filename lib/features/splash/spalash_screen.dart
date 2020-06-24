@@ -2,6 +2,7 @@ import 'package:dartx/dartx.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
+import 'package:productive/common/resources/strings.dart';
 import 'package:productive/features/home/home_screen.dart';
 import 'package:productive/utils/animation/animated_scale.dart';
 import 'package:productive/utils/extensions/navigation_extension.dart';
@@ -71,15 +72,16 @@ class SplashLogo extends StatelessWidget {
       shaderCallback: (Rect bound) {
         return const LinearGradient(
           colors: [
-            Color(0xFF01A4FF),
+            Color(0xFF00C2FF),
             Color(0xFF0186FF),
           ],
-          begin: Alignment(-1.0, -8.0),
-          end: Alignment(1.0, 4.0),
+          begin: Alignment(-1.0, -1.0),
+          end: Alignment(0.7, 0.7),
+          transform: GradientRotation(-3.14 / 4),
         ).createShader(bound);
       },
       child: Text(
-        "Productive",
+        R.strings.appName,
         style: TextStyle(
           fontWeight: FontWeight.w700,
           fontSize: 64,
