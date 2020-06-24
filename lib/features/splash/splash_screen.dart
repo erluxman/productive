@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
 import 'package:productive/common/resources/strings.dart';
-import 'package:productive/features/home/home_screen.dart';
+import 'package:productive/features/home/widgets/home_screen.dart';
 import 'package:productive/utils/animation/animated_scale.dart';
 import 'package:productive/utils/extensions/navigation_extension.dart';
 import 'package:productive/utils/extensions/gradient_extensions.dart';

@@ -21,12 +21,6 @@ class AnimatedScale extends ImplicitlyAnimatedWidget {
 
   @override
   _AnimatedScaleState createState() => _AnimatedScaleState();
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DoubleProperty('scale', scale));
-  }
 }
 
 class _AnimatedScaleState extends ImplicitlyAnimatedWidgetState<AnimatedScale> {

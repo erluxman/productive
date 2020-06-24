@@ -32,7 +32,7 @@ extension WidgetUnderGradient on Widget {
   }
 }
 
-LinearGradient blueLinearGradient = getLinearGradient(_blueGradientColors);
+LinearGradient blueLinearGradient = getLinearGradient(blueGradientColors);
 LinearGradient greyLinearGradient = getLinearGradient(_greyGradientColors);
 
 LinearGradient getLinearGradient(List<Color> colors) {
@@ -44,5 +44,5 @@ LinearGradient getLinearGradient(List<Color> colors) {
   );
 }
 
-const List<Color> _blueGradientColors = [Color(0xFF0186FF), Color(0xFF00C2FF)];
+const List<Color> blueGradientColors = [Color(0xFF0186FF), Color(0xFF00C2FF)];
 const List<Color> _greyGradientColors = [Color(0xFFD0D1D1), Color(0xFF8E9496)];
