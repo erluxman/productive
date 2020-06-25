@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:productive/common/resources/strings.dart';
+import 'package:productive/utils/animation/animated_scale.dart';
 import 'package:productive/utils/animation/animated_scale_button.dart';
 import 'package:productive/utils/extensions/gradient_extensions.dart';
 
@@ -15,17 +16,25 @@ class _BottomNavState extends State<BottomNav> {
   NavButtonsState navState =
       const NavButtonsState(selectedIndex: 0, pressedIndex: -1);
 
-  int selectedIndex = 0;
-
   void _selectPage(int index) {
     setState(() {
-      selectedIndex = index;
+      navState = navState.copyWith(selectedIndex: index);
+    });
+  }
+
+  void _touchIcon(int index) {
+    setState(() {
+      navState = navState.copyWith(pressedIndex: index);
     });
   }
 
   void _selectHome() => _selectPage(0);
 
   void _selectStats() => _selectPage(1);
+
+  void _touchHomeIcon() => _touchIcon(0);
+
+  void _touchStatsIcon() => _touchIcon(1);
 
   @override
   Widget build(BuildContext context) {
@@ -55,27 +64,35 @@ class _BottomNavState extends State<BottomNav> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                ScaleOnPressWidget(
-                  scaleFactor: 0.8,
+                GestureDetector(
+                  behavior: HitTestBehavior.opaque,
                   onTap: _selectHome,
-                  outerPadding: const EdgeInsets.all(16),
-                  child: SvgPicture.asset(
-                    R.svgImages.homeIcon,
-                    height: selectedIndex == 0 ? 32 : 24,
-                  ).getShadedWidget(selectedIndex == 0
-                      ? blueLinearGradient
-                      : greyLinearGradient),
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: AnimatedScale(
+                      duration: _getDuration(0, navState),
+                      scale: _getScale(0, navState),
+                      child: SvgPicture.asset(
+                        R.svgImages.homeIcon,
+                        height: 32,
+                      ).getShadedWidget(_getGradient(0, navState)),
+                    ),
+                  ),
                 ),
-                ScaleOnPressWidget(
-                  scaleFactor: 0.8,
+                GestureDetector(
+                  behavior: HitTestBehavior.opaque,
                   onTap: _selectStats,
-                  outerPadding: const EdgeInsets.all(16),
-                  child: SvgPicture.asset(
-                    R.svgImages.statsIcon,
-                    height: selectedIndex == 1 ? 32 : 24,
-                  ).getShadedWidget(selectedIndex == 1
-                      ? blueLinearGradient
-                      : greyLinearGradient),
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: AnimatedScale(
+                      duration: _getDuration(1, navState),
+                      scale: _getScale(1, navState),
+                      child: SvgPicture.asset(
+                        R.svgImages.statsIcon,
+                        height: 32,
+                      ).getShadedWidget(_getGradient(1, navState)),
+                    ),
+                  ),
                 )
               ],
             ),
@@ -84,6 +101,27 @@ class _BottomNavState extends State<BottomNav> {
       ),
     );
   }
+
+  LinearGradient _getGradient(int buttonIndex, NavButtonsState navState) {
+    return buttonIndex == navState.selectedIndex
+        ? blueLinearGradient
+        : greyLinearGradient;
+  }
+
+  Duration _getDuration(int buttonIndex, NavButtonsState navState) {
+    final bool toEnlarge = buttonIndex == navState.selectedIndex ||
+        buttonIndex != navState.pressedIndex;
+    return Duration(milliseconds: toEnlarge ? 200 : 50);
+  }
+
+  double _getScale(int buttonIndex, NavButtonsState navState) {
+    if (buttonIndex == navState.pressedIndex &&
+        buttonIndex == navState.selectedIndex) return 0.8;
+    if (buttonIndex == navState.pressedIndex) return 0.6;
+    if (buttonIndex != navState.pressedIndex &&
+        buttonIndex != navState.selectedIndex) return 0.8;
+    return 1.0;
+  }
 }
 
 class NavButtonsState {
@@ -91,5 +129,20 @@ class NavButtonsState {
 
   final int selectedIndex;
   final int pressedIndex;
-  
+
+  NavButtonsState copyWith({
+    int selectedIndex,
+    int pressedIndex,
+  }) {
+    if ((selectedIndex == null ||
+            identical(selectedIndex, this.selectedIndex)) &&
+        (pressedIndex == null || identical(pressedIndex, this.pressedIndex))) {
+      return this;
+    }
+
+    return NavButtonsState(
+      selectedIndex: selectedIndex ?? this.selectedIndex,
+      pressedIndex: pressedIndex ?? this.pressedIndex,
+    );
+  }
 }

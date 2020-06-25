@@ -68,12 +68,7 @@ class _ScaleOnPressWidgetState extends State<ScaleOnPressWidget> {
           isPressed = true;
         });
       },
-      onTap: () {
-        widget.onTap();
-        setState(() {
-          isPressed = true;
-        });
-      },
+      onTap: widget.onTap,
       child: Padding(
         padding: widget.outerPadding,
         child: AnimatedScale(
