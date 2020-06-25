@@ -87,7 +87,6 @@ class _AnimatedMotivationMeterState extends State<AnimatedMotivationMeter>
       ..addListener(() {
         setState(() {});
       });
-
     controller.forward();
   }
 

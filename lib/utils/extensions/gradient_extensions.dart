@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 extension WidgetUnderGradient on Widget {
   Widget withBlueGradientFg() {
-    return _getShadedWidget(blueLinearGradient);
+    return getShadedWidget(blueLinearGradient);
   }
 
   Widget withGreyGradientFg() {
-    return _getShadedWidget(greyLinearGradient);
+    return getShadedWidget(greyLinearGradient);
   }
 
-  Widget _getShadedWidget(LinearGradient gradient) {
+  Widget getShadedWidget(LinearGradient gradient) {
     return ShaderMask(
       blendMode: BlendMode.srcIn,
       shaderCallback: (Rect bound) {
