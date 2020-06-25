@@ -1,3 +1,4 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:dartx/dartx.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -5,8 +6,8 @@ import 'package:lottie/lottie.dart';
 import 'package:productive/common/resources/strings.dart';
 import 'package:productive/features/home/widgets/home_screen.dart';
 import 'package:productive/utils/animation/animated_scale.dart';
-import 'package:productive/utils/extensions/navigation_extension.dart';
 import 'package:productive/utils/extensions/gradient_extensions.dart';
+import 'package:productive/utils/extensions/navigation_extension.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen();
@@ -16,11 +17,26 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  final _audioPlayer = AssetsAudioPlayer();
+
+  @override
+  void initState() {
+    super.initState();
+    _audioPlayer.open(Audio("assets/sounds/wind.mp3"),
+        loopMode: LoopMode.single);
+  }
+
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SplashScreenBody(),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _audioPlayer.dispose();
   }
 }
 
@@ -113,7 +129,7 @@ class _LoginWithGoogleState extends State<LoginWithGoogle> {
         });
       },
       onTap: () {
-        context.navigateTo(const HomeScreen());
+        context.navigateTo(const HomeScreen(), replace: true);
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 48.0),
