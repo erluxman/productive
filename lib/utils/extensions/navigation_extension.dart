@@ -9,8 +9,8 @@ extension NavigationExtension on BuildContext {
       pageBuilder: (context, animation, secondaryAnimation) => destination,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         const begin = Offset(1.0, 0.0);
-        final end = Offset.zero;
-        final curve = Curves.decelerate;
+        const end = Offset.zero;
+        const curve = Curves.decelerate;
 
         final tween =
             Tween(begin: begin, end: end).chain(CurveTween(curve: curve));

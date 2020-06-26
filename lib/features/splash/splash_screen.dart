@@ -2,7 +2,7 @@ import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
-import 'package:productive/common/resources/strings.dart';
+import 'package:productive/common/resources/r.dart';
 import 'package:productive/features/home/widgets/home_screen.dart';
 import 'package:productive/utils/animation/animated_scale_button.dart';
 import 'package:productive/utils/extensions/gradient_extensions.dart';
@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     _audioPlayer.open(
-      Audio("assets/sounds/wind.mp3"),
+      Audio(R.audio.splashBreeze),
       loopMode: LoopMode.single,
       playInBackground: PlayInBackground.disabledRestoreOnForeground,
       seek: const Duration(seconds: 2),
@@ -80,12 +80,12 @@ class SignInWithGoogleButton extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        SvgPicture.asset("assets/images/google.svg"),
+        SvgPicture.asset(R.svg.googleIcon),
         const SizedBox(
           width: 16,
         ),
         Text(
-          "Continue with google",
+          R.string.loginWithGoogle,
           style: TextStyle(
             fontSize: 17,
             fontWeight: FontWeight.w700,
@@ -105,7 +105,7 @@ class PaperPlaneWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Lottie.asset(
-          'assets/lottie/paper_plane.json',
+          R.lottie.paperPlane,
           height: 300,
           width: 300,
         ),
@@ -120,7 +120,7 @@ class SplashLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      R.strings.appName,
+      R.string.appName,
       style: TextStyle(
         fontWeight: FontWeight.w700,
         fontSize: 64,

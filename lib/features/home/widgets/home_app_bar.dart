@@ -4,6 +4,7 @@ import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:productive/common/resources/r.dart';
 import 'package:productive/utils/extensions/gradient_extensions.dart';
 
 class AppbarContent extends StatelessWidget {
@@ -25,7 +26,7 @@ class AppbarContent extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(200),
               child: CachedNetworkImage(
-                imageUrl: johnDoeImage,
+                imageUrl: R.placeholders.johDoeImage,
                 placeholder: (context, url) =>
                     const CircularProgressIndicator(),
                 errorWidget: (context, url, error) => Icon(Icons.error),
@@ -35,12 +36,12 @@ class AppbarContent extends StatelessWidget {
             ),
           ],
         ),
-        const Text(
-          "Todo",
+        Text(
+          R.string.todo,
           style: TextStyle(fontSize: 28, fontWeight: FontWeight.w600),
         ),
         SvgPicture.asset(
-          "assets/images/success.svg",
+          R.svg.successIcon,
           height: 32,
           width: 32,
         )
@@ -77,7 +78,7 @@ class _AnimatedMotivationMeterState extends State<AnimatedMotivationMeter>
   void initState() {
     super.initState();
     super.initState();
-    _audioPlayer.open(Audio("assets/sounds/point.mp3"));
+    _audioPlayer.open(Audio(R.audio.welcomeTone));
     controller = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 2000));
     animation = Tween<double>(
@@ -152,6 +153,3 @@ class CircleProgressPainter extends CustomPainter {
 
 AppBar homeAppbar =
     AppBar(title: const AppbarContent(), automaticallyImplyLeading: false);
-
-String johnDoeImage =
-    "https://pbs.twimg.com/profile_images/1057989852942270464/bt45DHmR.jpg";

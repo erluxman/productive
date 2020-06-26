@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:productive/common/resources/strings.dart';
+import 'package:productive/common/resources/r.dart';
 import 'package:productive/utils/animation/animated_scale.dart';
 import 'package:productive/utils/extensions/gradient_extensions.dart';
 
@@ -35,7 +35,7 @@ class _BottomNavState extends State<BottomNav> {
 
   void _touchStatsIcon() => _touchIcon(1);
 
-  void _untouch() => _touchIcon(-1);
+  void _unTouch() => _touchIcon(-1);
 
   @override
   Widget build(BuildContext context) {
@@ -60,52 +60,50 @@ class _BottomNavState extends State<BottomNav> {
               side: BorderSide(),
             ),
           ),
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                GestureDetector(
-                  behavior: HitTestBehavior.opaque,
-                  onTap: _selectHome,
-                  onLongPress: _touchHomeIcon,
-                  onLongPressUp: _untouch,
-                  onTapUp: (_) => _untouch,
-                  onLongPressStart: (_) => _touchHomeIcon,
-                  onLongPressEnd: (_) => _untouch,
-                  child: Padding(
-                    padding: const EdgeInsets.all(32.0),
-                    child: AnimatedScale(
-                      duration: const Duration(milliseconds: 200),
-                      scale: _getScaleProxy(0, navState),
-                      child: SvgPicture.asset(
-                        R.svgImages.homeIcon,
-                        height: 32,
-                      ).getShadedWidget(_getGradient(0, navState)),
-                    ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: _selectHome,
+                onLongPress: _touchHomeIcon,
+                onLongPressUp: _unTouch,
+                onTapUp: (_) => _unTouch,
+                onLongPressStart: (_) => _touchHomeIcon,
+                onLongPressEnd: (_) => _unTouch,
+                child: Padding(
+                  padding: const EdgeInsets.all(32.0),
+                  child: AnimatedScale(
+                    duration: const Duration(milliseconds: 200),
+                    scale: _getScale(0, navState),
+                    child: SvgPicture.asset(
+                      R.svg.homeIcon,
+                      height: 32,
+                    ).getShadedWidget(_getGradient(0, navState)),
                   ),
                 ),
-                GestureDetector(
-                  behavior: HitTestBehavior.opaque,
-                  onTap: _selectStats,
-                  onLongPress: _touchStatsIcon,
-                  onLongPressUp: _untouch,
-                  onTapUp: (_) => _untouch,
-                  onLongPressStart: (_) => _touchStatsIcon,
-                  onLongPressEnd: (_) => _untouch,
-                  child: Padding(
-                    padding: const EdgeInsets.all(32.0),
-                    child: AnimatedScale(
-                      duration: const Duration(milliseconds: 200),
-                      scale: _getScaleProxy(1, navState),
-                      child: SvgPicture.asset(
-                        R.svgImages.statsIcon,
-                        height: 32,
-                      ).getShadedWidget(_getGradient(1, navState)),
-                    ),
+              ),
+              GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: _selectStats,
+                onLongPress: _touchStatsIcon,
+                onLongPressUp: _unTouch,
+                onTapUp: (_) => _unTouch,
+                onLongPressStart: (_) => _touchStatsIcon,
+                onLongPressEnd: (_) => _unTouch,
+                child: Padding(
+                  padding: const EdgeInsets.all(32.0),
+                  child: AnimatedScale(
+                    duration: const Duration(milliseconds: 200),
+                    scale: _getScale(1, navState),
+                    child: SvgPicture.asset(
+                      R.svg.statsIcon,
+                      height: 32,
+                    ).getShadedWidget(_getGradient(1, navState)),
                   ),
-                )
-              ],
-            ),
+                ),
+              )
+            ],
           ),
         ),
       ),
@@ -116,12 +114,6 @@ class _BottomNavState extends State<BottomNav> {
     return buttonIndex == navState.selectedIndex
         ? blueLinearGradient
         : greyLinearGradient;
-  }
-
-  double _getScaleProxy(int buttonIndex, NavButtonsState navState) {
-    var scale = _getScale(buttonIndex, navState);
-    print("Index $buttonIndex Scale : $scale");
-    return scale;
   }
 
   double _getScale(int buttonIndex, NavButtonsState navState) {
