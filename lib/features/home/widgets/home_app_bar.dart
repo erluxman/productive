@@ -19,8 +19,8 @@ class AppbarContent extends StatelessWidget {
           children: <Widget>[
             const AnimatedMotivationMeter(
               motivation: 0.6,
-              height: 42,
-              width: 42,
+              height: 46,
+              width: 46,
             ),
             ClipRRect(
               borderRadius: BorderRadius.circular(200),
@@ -29,8 +29,8 @@ class AppbarContent extends StatelessWidget {
                 placeholder: (context, url) =>
                     const CircularProgressIndicator(),
                 errorWidget: (context, url, error) => Icon(Icons.error),
-                height: 36,
-                width: 36,
+                height: 40,
+                width: 40,
               ),
             ),
           ],

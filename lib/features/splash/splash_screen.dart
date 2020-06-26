@@ -26,6 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
       loopMode: LoopMode.single,
       playInBackground: PlayInBackground.disabledRestoreOnForeground,
       seek: const Duration(seconds: 2),
+      volume: 0.5
     );
   }
 
