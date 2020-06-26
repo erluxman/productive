@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:productive/common/resources/r.dart';
 
 class HomeBody extends StatelessWidget {
   const HomeBody({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text("Hello world"),
+    return Center(
+      child: Text(R.string.appName),
     );
   }
 }

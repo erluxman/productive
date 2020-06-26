@@ -4,12 +4,13 @@ import 'package:flutter/material.dart';
 import 'animated_scale.dart';
 
 class ScaleOnPressWidget extends StatefulWidget {
-  const ScaleOnPressWidget(
-      {this.child,
-      this.onTap,
-      this.outerPadding = EdgeInsets.zero,
-      this.innerPadding = EdgeInsets.zero,
-      this.scaleFactor = 0.95});
+  const ScaleOnPressWidget({
+    this.child,
+    this.onTap,
+    this.outerPadding = EdgeInsets.zero,
+    this.innerPadding = EdgeInsets.zero,
+    this.scaleFactor = 0.95,
+  });
 
   final Widget child;
   final GestureTapCallback onTap;
@@ -24,50 +25,28 @@ class ScaleOnPressWidget extends StatefulWidget {
 class _ScaleOnPressWidgetState extends State<ScaleOnPressWidget> {
   bool isPressed = false;
 
+  void _unPress() => _update(false);
+
+  void _press() => _update(true);
+
+  void _update(bool pressed) {
+    setState(() {
+      isPressed = pressed;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
-      onLongPressStart: (details) {
-        setState(() {
-          isPressed = true;
-        });
-      },
-      onLongPressEnd: (details) {
-        setState(() {
-          isPressed = false;
-        });
-      },
-      onTapDown: (details) {
-        setState(() {
-          isPressed = true;
-        });
-      },
-      onTapUp: (details) {
-        setState(() {
-          isPressed = false;
-        });
-      },
-      onLongPress: () {
-        setState(() {
-          isPressed = true;
-        });
-      },
-      onLongPressUp: () {
-        setState(() {
-          isPressed = false;
-        });
-      },
-      onSecondaryTapUp: (details) {
-        setState(() {
-          isPressed = false;
-        });
-      },
-      onDoubleTap: () {
-        setState(() {
-          isPressed = true;
-        });
-      },
+      onLongPressStart: (_) => _press,
+      onLongPressEnd: (_) => _unPress,
+      onTapDown: (_) => _press,
+      onTapUp: (_) => _unPress,
+      onLongPress: _press,
+      onLongPressUp: _unPress,
+      onSecondaryTapUp: (_) => _unPress,
+      onDoubleTap: _press,
       onTap: widget.onTap,
       child: Padding(
         padding: widget.outerPadding,

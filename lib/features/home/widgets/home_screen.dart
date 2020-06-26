@@ -15,10 +15,8 @@ class HomeScreen extends StatelessWidget {
       body: const HomeBody(),
       appBar: homeAppbar,
       floatingActionButton: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 2,vertical: 2),
-        child: ScaleOnPressWidget(
-          child: Fab(),
-        ),
+        padding: EdgeInsets.symmetric(horizontal: 2, vertical: 2),
+        child: ScaleOnPressWidget(child: Fab()),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: const BottomNav(),

@@ -21,13 +21,11 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    _audioPlayer.open(
-      Audio(R.audio.splashBreeze),
-      loopMode: LoopMode.single,
-      playInBackground: PlayInBackground.disabledRestoreOnForeground,
-      seek: const Duration(seconds: 2),
-      volume: 0.5
-    );
+    _audioPlayer.open(Audio(R.audio.splashBreeze),
+        loopMode: LoopMode.single,
+        playInBackground: PlayInBackground.disabledRestoreOnForeground,
+        seek: const Duration(seconds: 2),
+        volume: 0.5);
   }
 
   @override
@@ -54,9 +52,12 @@ class SplashScreenBody extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       children: <Widget>[
         const Spacer(flex: 3),
-        const PaperPlaneWidget(),
+        Lottie.asset(R.lottie.paperPlane, height: 300, width: 300),
         const Spacer(flex: 3),
-        const SplashLogo(),
+        Text(
+          R.string.appName,
+          style: TextStyle(fontWeight: FontWeight.w700, fontSize: 64),
+        ).withBlueGradientFg(),
         const Spacer(flex: 5),
         ScaleOnPressWidget(
             onTap: () {
@@ -81,51 +82,12 @@ class SignInWithGoogleButton extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         SvgPicture.asset(R.svg.googleIcon),
-        const SizedBox(
-          width: 16,
-        ),
+        const SizedBox(width: 16),
         Text(
           R.string.loginWithGoogle,
-          style: TextStyle(
-            fontSize: 17,
-            fontWeight: FontWeight.w700,
-          ),
+          style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),
         ),
       ],
     );
-  }
-}
-
-class PaperPlaneWidget extends StatelessWidget {
-  const PaperPlaneWidget();
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Lottie.asset(
-          R.lottie.paperPlane,
-          height: 300,
-          width: 300,
-        ),
-      ],
-    );
-  }
-}
-
-class SplashLogo extends StatelessWidget {
-  const SplashLogo();
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      R.string.appName,
-      style: TextStyle(
-        fontWeight: FontWeight.w700,
-        fontSize: 64,
-        color: Colors.blue,
-      ),
-    ).withBlueGradientFg();
   }
 }

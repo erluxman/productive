@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:productive/common/resources/r.dart';
-import 'package:productive/utils/animation/animated_scale.dart';
-import 'package:productive/utils/extensions/gradient_extensions.dart';
+
+import 'animated_nav_button.dart';
 
 class BottomNav extends StatefulWidget {
   const BottomNav({Key key}) : super(key: key);
@@ -29,9 +27,9 @@ class _BottomNavState extends State<BottomNav> {
 
   void _selectHome() => _selectPage(0);
 
-  void _selectStats() => _selectPage(1);
-
   void _touchHomeIcon() => _touchIcon(0);
+
+  void _selectStats() => _selectPage(1);
 
   void _touchStatsIcon() => _touchIcon(1);
 
@@ -63,88 +61,24 @@ class _BottomNavState extends State<BottomNav> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: _selectHome,
-                onLongPress: _touchHomeIcon,
-                onLongPressUp: _unTouch,
-                onTapUp: (_) => _unTouch,
-                onLongPressStart: (_) => _touchHomeIcon,
-                onLongPressEnd: (_) => _unTouch,
-                child: Padding(
-                  padding: const EdgeInsets.all(32.0),
-                  child: AnimatedScale(
-                    duration: const Duration(milliseconds: 200),
-                    scale: _getScale(0, navState),
-                    child: SvgPicture.asset(
-                      R.svg.homeIcon,
-                      height: 32,
-                    ).getShadedWidget(_getGradient(0, navState)),
-                  ),
-                ),
+              AnimatedNavIcon(
+                navState: navState,
+                select: _selectHome,
+                unTouch: _unTouch,
+                touch: _touchHomeIcon,
+                child: HomeIcon(navState: navState),
               ),
-              GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: _selectStats,
-                onLongPress: _touchStatsIcon,
-                onLongPressUp: _unTouch,
-                onTapUp: (_) => _unTouch,
-                onLongPressStart: (_) => _touchStatsIcon,
-                onLongPressEnd: (_) => _unTouch,
-                child: Padding(
-                  padding: const EdgeInsets.all(32.0),
-                  child: AnimatedScale(
-                    duration: const Duration(milliseconds: 200),
-                    scale: _getScale(1, navState),
-                    child: SvgPicture.asset(
-                      R.svg.statsIcon,
-                      height: 32,
-                    ).getShadedWidget(_getGradient(1, navState)),
-                  ),
-                ),
-              )
+              AnimatedNavIcon(
+                navState: navState,
+                select: _selectStats,
+                unTouch: _unTouch,
+                touch: _touchStatsIcon,
+                child: StatsIcon(navState: navState),
+              ),
             ],
           ),
         ),
       ),
-    );
-  }
-
-  LinearGradient _getGradient(int buttonIndex, NavButtonsState navState) {
-    return buttonIndex == navState.selectedIndex
-        ? blueLinearGradient
-        : greyLinearGradient;
-  }
-
-  double _getScale(int buttonIndex, NavButtonsState navState) {
-    if (buttonIndex == navState.pressedIndex &&
-        buttonIndex == navState.selectedIndex) return 0.8;
-    if (buttonIndex == navState.pressedIndex) return 0.6;
-    if (buttonIndex != navState.pressedIndex &&
-        buttonIndex != navState.selectedIndex) return 0.8;
-    return 1.0;
-  }
-}
-
-class NavButtonsState {
-  const NavButtonsState({this.selectedIndex, this.pressedIndex});
-
-  final int selectedIndex;
-  final int pressedIndex;
-
-  NavButtonsState copyWith({
-    int selectedIndex,
-    int pressedIndex,
-  }) {
-    if ((selectedIndex == null ||
-            identical(selectedIndex, this.selectedIndex)) &&
-        (pressedIndex == null || identical(pressedIndex, this.pressedIndex))) {
-      return this;
-    }
-
-    return NavButtonsState(
-      selectedIndex: selectedIndex ?? this.selectedIndex,
-      pressedIndex: pressedIndex ?? this.pressedIndex,
     );
   }
 }
