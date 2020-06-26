@@ -7,8 +7,6 @@ class R {
 }
 
 class Placeholders {
-  Placeholders();
-
   String johDoeImage =
       "https://pbs.twimg.com/profile_images/1057989852942270464/bt45DHmR.jpg";
 }

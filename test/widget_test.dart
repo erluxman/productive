@@ -34,7 +34,7 @@ void main() {
         (WidgetTester tester) async {
       await tester.pumpWidget(const SplashScreenBody().testWidget);
       expect(find.byType(AnimatedScale), findsOneWidget);
-      expect(find.text("Continue with google"), findsOneWidget);
+      expect(find.text(R.string.loginWithGoogle), findsOneWidget);
     });
   });
 }

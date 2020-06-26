@@ -17,23 +17,13 @@ class AppbarContent extends StatelessWidget {
       children: <Widget>[
         Stack(
           alignment: Alignment.center,
-          children: <Widget>[
-            const AnimatedMotivationMeter(
+          children: const <Widget>[
+            AnimatedMotivationMeter(
               motivation: 0.6,
-              height: 46,
-              width: 46,
+              height: 42,
+              width: 42,
             ),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(200),
-              child: CachedNetworkImage(
-                imageUrl: R.placeholders.johDoeImage,
-                placeholder: (context, url) =>
-                    const CircularProgressIndicator(),
-                errorWidget: (context, url, error) => Icon(Icons.error),
-                height: 40,
-                width: 40,
-              ),
-            ),
+            DisplayPic(),
           ],
         ),
         Text(
@@ -42,10 +32,30 @@ class AppbarContent extends StatelessWidget {
         ),
         SvgPicture.asset(
           R.svg.successIcon,
-          height: 32,
-          width: 32,
+          height: 28,
+          width: 28,
         )
       ],
+    );
+  }
+}
+
+class DisplayPic extends StatelessWidget {
+  const DisplayPic({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(200),
+      child: CachedNetworkImage(
+        imageUrl: R.placeholders.johDoeImage,
+        placeholder: (context, url) => const CircularProgressIndicator(),
+        errorWidget: (context, url, error) => Icon(Icons.error),
+        height: 36,
+        width: 36,
+      ),
     );
   }
 }
