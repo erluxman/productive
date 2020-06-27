@@ -32,7 +32,6 @@ class _AnimatedMotivationMeterState extends State<AnimatedMotivationMeter>
   @override
   void initState() {
     super.initState();
-    super.initState();
     _audioPlayer.open(Audio(R.audio.welcomeTone), volume: 0.5);
     controller = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 2000));
@@ -57,8 +56,9 @@ class _AnimatedMotivationMeterState extends State<AnimatedMotivationMeter>
 
   @override
   void dispose() {
-    super.dispose();
     _audioPlayer.dispose();
+    controller.dispose();
+    super.dispose();
   }
 }
 

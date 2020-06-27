@@ -9,7 +9,7 @@ import 'package:productive/utils/extensions/gradient_extensions.dart';
 import 'package:productive/utils/extensions/navigation_extension.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen();
+  const SplashScreen({Key key}) : super(key: key);
 
   @override
   _SplashScreenState createState() => _SplashScreenState();
@@ -43,7 +43,7 @@ class _SplashScreenState extends State<SplashScreen> {
 }
 
 class SplashScreenBody extends StatelessWidget {
-  const SplashScreenBody();
+  const SplashScreenBody({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
