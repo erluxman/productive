@@ -24,4 +24,14 @@ void main() {
       },
     );
   });
+
+  group("Test BottomNav behaviors", () {
+    testWidgets(
+      "When a button is long pressed, it has 80% size",
+      (WidgetTester tester) async{
+        await tester.pumpWidget(const HomeScreen().asScaffold);
+       // await tester.longPress(find.byType(type))
+      },
+    );
+  });
 }

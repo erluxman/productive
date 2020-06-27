@@ -34,10 +34,17 @@ class AnimatedNavIcon extends StatelessWidget {
   }
 }
 
-class HomeIcon extends StatelessWidget {
-  const HomeIcon({Key key, @required this.navState}) : super(key: key);
+class NavIcon extends StatelessWidget {
+  const NavIcon({
+    Key key,
+    @required this.navState,
+    @required this.svgPath,
+    @required this.position
+  }) : super(key: key);
 
   final NavButtonsState navState;
+  final String svgPath;
+  final int position;
 
   @override
   Widget build(BuildContext context) {
@@ -45,32 +52,11 @@ class HomeIcon extends StatelessWidget {
       padding: const EdgeInsets.all(32.0),
       child: AnimatedScale(
         duration: const Duration(milliseconds: 200),
-        scale: _getScale(0, navState),
+        scale: _getScale(position, navState),
         child: SvgPicture.asset(
-          R.svg.homeIcon,
+          svgPath,
           height: 32,
-        ).getShadedWidget(_getGradient(0, navState)),
-      ),
-    );
-  }
-}
-
-class StatsIcon extends StatelessWidget {
-  const StatsIcon({Key key, @required this.navState}) : super(key: key);
-
-  final NavButtonsState navState;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(32.0),
-      child: AnimatedScale(
-        duration: const Duration(milliseconds: 200),
-        scale: _getScale(1, navState),
-        child: SvgPicture.asset(
-          R.svg.statsIcon,
-          height: 32,
-        ).getShadedWidget(_getGradient(1, navState)),
+        ).getShadedWidget(_getGradient(position, navState)),
       ),
     );
   }
@@ -102,7 +88,7 @@ class NavButtonsState {
     int pressedIndex,
   }) {
     if ((selectedIndex == null ||
-        identical(selectedIndex, this.selectedIndex)) &&
+            identical(selectedIndex, this.selectedIndex)) &&
         (pressedIndex == null || identical(pressedIndex, this.pressedIndex))) {
       return this;
     }

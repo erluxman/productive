@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:productive/common/resources/r.dart';
 
 import 'animated_nav_button.dart';
 
@@ -66,14 +67,22 @@ class _BottomNavState extends State<BottomNav> {
                 select: _selectHome,
                 unTouch: _unTouch,
                 touch: _touchHomeIcon,
-                child: HomeIcon(navState: navState),
+                child: NavIcon(
+                  position: 0,
+                  svgPath: R.svg.homeIcon,
+                  navState: navState,
+                ),
               ),
               AnimatedNavIcon(
                 navState: navState,
                 select: _selectStats,
                 unTouch: _unTouch,
                 touch: _touchStatsIcon,
-                child: StatsIcon(navState: navState),
+                child: NavIcon(
+                  position: 1,
+                  svgPath: R.svg.statsIcon,
+                  navState: navState,
+                ),
               ),
             ],
           ),
