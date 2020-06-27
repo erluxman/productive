@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:productive/common/resources/r.dart';
 import 'package:productive/utils/animation/animated_scale.dart';
 import 'package:productive/utils/extensions/gradient_extensions.dart';
 
@@ -35,12 +34,12 @@ class AnimatedNavIcon extends StatelessWidget {
 }
 
 class NavIcon extends StatelessWidget {
-  const NavIcon({
-    Key key,
-    @required this.navState,
-    @required this.svgPath,
-    @required this.position
-  }) : super(key: key);
+  const NavIcon(
+      {Key key,
+      @required this.navState,
+      @required this.svgPath,
+      @required this.position})
+      : super(key: key);
 
   final NavButtonsState navState;
   final String svgPath;
