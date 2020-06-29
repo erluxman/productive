@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:productive/common/resources/r.dart';
 import 'package:productive/features/home/widgets/home_app_bar.dart';
@@ -24,14 +25,5 @@ void main() {
       },
     );
   });
-
-  group("Test BottomNav behaviors", () {
-    testWidgets(
-      "When a button is long pressed, it has 80% size",
-      (WidgetTester tester) async{
-        await tester.pumpWidget(const HomeScreen().asScaffold);
-       // await tester.longPress(find.byType(type))
-      },
-    );
-  });
 }
+

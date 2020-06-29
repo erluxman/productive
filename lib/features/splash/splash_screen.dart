@@ -60,6 +60,7 @@ class SplashScreenBody extends StatelessWidget {
         ).withBlueGradientFg(),
         const Spacer(flex: 5),
         ScaleOnPressWidget(
+            gestureKey: "login",
             onTap: () {
               context.navigateTo(const HomeScreen(), replace: true);
             },

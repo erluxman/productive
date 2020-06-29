@@ -34,5 +34,15 @@ void main() {
         expect(find.text(R.string.loginWithGoogle), findsOneWidget);
       },
     );
+
+    testWidgets("Can navigate to HomeScreen", (WidgetTester tester) async {
+      await tester.pumpWidget(const SplashScreen().asScaffold);
+      final loginButton = find.byKey(const Key("login"));
+      expect(loginButton, findsOneWidget);
+      await tester.tap(loginButton);
+      await tester.pump(const Duration(seconds: 1));
+      await tester.tap(loginButton);
+      //expect(find.text(R.string.todo), findsOneWidget);
+    });
   });
 }

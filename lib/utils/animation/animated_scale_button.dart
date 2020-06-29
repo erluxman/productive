@@ -4,19 +4,22 @@ import 'package:flutter/material.dart';
 import 'animated_scale.dart';
 
 class ScaleOnPressWidget extends StatefulWidget {
-  const ScaleOnPressWidget({
-    this.child,
-    this.onTap,
-    this.outerPadding = EdgeInsets.zero,
-    this.innerPadding = EdgeInsets.zero,
-    this.scaleFactor = 0.95,
-  });
+  const ScaleOnPressWidget(
+      {this.child,
+      this.onTap,
+      this.outerPadding = EdgeInsets.zero,
+      this.innerPadding = EdgeInsets.zero,
+      this.scaleFactor = 0.95,
+      @required this.gestureKey,
+      Key key})
+      : super(key: key);
 
   final Widget child;
   final GestureTapCallback onTap;
   final EdgeInsets outerPadding;
   final EdgeInsets innerPadding;
   final double scaleFactor;
+  final String gestureKey;
 
   @override
   _ScaleOnPressWidgetState createState() => _ScaleOnPressWidgetState();
@@ -38,6 +41,7 @@ class _ScaleOnPressWidgetState extends State<ScaleOnPressWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      key: Key(widget.gestureKey),
       behavior: HitTestBehavior.opaque,
       onLongPressStart: (_) => _press,
       onLongPressEnd: (_) => _unPress,
