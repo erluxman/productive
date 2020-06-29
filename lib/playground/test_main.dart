@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:productive/features/home/widgets/home_screen.dart';
+
 import '../utils/extensions/navigation_extension.dart';
 
-main() => runApp(DummyApp());
+void main() => runApp(DummyApp());
 
 class DummyApp extends StatelessWidget {
   @override
@@ -21,18 +23,25 @@ class Screen1 extends StatelessWidget {
         child: Column(
           children: <Widget>[
             MaterialButton(
-              key: Key("go_screen_2"),
+              key: const Key("go_screen_2"),
               onPressed: () {
                 context.navigateTo(Screen2());
               },
-              child: Text("Go to screen2"),
+              child: const Text("Go to screen2"),
             ),
             GestureDetector(
-              key: Key("gd1"),
-              onTap: (){
+              key:const Key("gd1"),
+              onTap: () {
                 context.navigateTo(Screen2());
               },
-              child: Text("Jump to screen2"),
+              child:const Text("Jump to screen2"),
+            ),
+            GestureDetector(
+              key:const Key("gotohome"),
+              onTap: () {
+                context.navigateTo(const HomeScreen());
+              },
+              child:const Text("Jump to home"),
             )
           ],
         ),
@@ -49,20 +58,20 @@ class Screen2 extends StatelessWidget {
         child: Column(
           children: <Widget>[
             MaterialButton(
-              key: Key("go_screen_1"),
+              key: const Key("go_screen_1"),
               onPressed: () {
                 context.navigateTo(Screen1());
 //            Navigator.of(context)
 //                .push(MaterialPageRoute(builder: (context) => Screen1()));
               },
-              child: Text("Go to screen1"),
+              child: const Text("Go to screen1"),
             ),
             GestureDetector(
-              key: Key("gd2"),
-              onTap: (){
+              key: const Key("gd2"),
+              onTap: () {
                 context.navigateTo(Screen1());
               },
-              child: Text("Jump to screen1"),
+              child: const Text("Jump to screen1"),
             )
           ],
         ),

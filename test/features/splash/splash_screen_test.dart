@@ -40,9 +40,9 @@ void main() {
       final loginButton = find.byKey(const Key("login"));
       expect(loginButton, findsOneWidget);
       await tester.tap(loginButton);
-      await tester.pump(const Duration(seconds: 1));
-      await tester.tap(loginButton);
-      //expect(find.text(R.string.todo), findsOneWidget);
+      await tester.pumpAndSettle();
+      expect(loginButton, findsNothing);
+      expect(find.byKey(const Key("go_screen_2")), findsOneWidget);
     });
   });
 }

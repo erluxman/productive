@@ -17,7 +17,7 @@ class HomeScreen extends StatelessWidget {
       floatingActionButton: const Padding(
         padding: EdgeInsets.symmetric(horizontal: 2, vertical: 2),
         child: ScaleOnPressWidget(
-          gestureKey: "home_fab",
+          key: Key("home_fab"),
           child: Fab(),
         ),
       ),
