@@ -13,7 +13,8 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: const HomeBody(),
-      appBar: homeAppbar,
+      appBar: AppBar(
+          title: const AppbarContent(), automaticallyImplyLeading: false),
       floatingActionButton: const Padding(
         padding: EdgeInsets.symmetric(horizontal: 2, vertical: 2),
         child: ScaleOnPressWidget(

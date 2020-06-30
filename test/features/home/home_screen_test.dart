@@ -1,5 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:productive/common/resources/r.dart';
 import 'package:productive/features/home/widgets/home_app_bar.dart';
@@ -19,6 +19,7 @@ void main() {
         expect(find.byType(RaisedButton), findsOneWidget);
         expect(find.byType(BottomNav), findsOneWidget);
         expect(find.byType(AppbarContent), findsOneWidget);
+        expect(find.byType(CachedNetworkImage), findsOneWidget);
 
         await tester.pumpWidget(const Fab().testWidget);
         expect(find.text(R.string.addTodo), findsOneWidget);

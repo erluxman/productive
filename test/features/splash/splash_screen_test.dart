@@ -2,13 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:lottie/lottie.dart';
 import 'package:productive/common/resources/r.dart';
+import 'package:productive/features/home/widgets/home_body.dart';
+import 'package:productive/features/home/widgets/home_fab.dart';
 import 'package:productive/features/splash/splash_screen.dart';
 import 'package:productive/utils/animation/animated_scale.dart';
-
 import '../../utils/widget/test_utils.dart';
 
 void main() {
+
   group("All required widgets are on the Splash screen", () {
+    setUpAll((){
+      R.buildMode.isTesting = true;
+    });
+
+    tearDownAll((){
+      R.buildMode.isTesting = false;
+    });
     testWidgets(
       "There is Lottie Widget",
       (WidgetTester tester) async {
@@ -42,7 +51,8 @@ void main() {
       await tester.tap(loginButton);
       await tester.pumpAndSettle();
       expect(loginButton, findsNothing);
-      expect(find.byKey(const Key("go_screen_2")), findsOneWidget);
+      expect(find.byType(HomeBody), findsOneWidget);
+      expect(find.byType(Fab), findsOneWidget);
     });
   });
 }

@@ -4,6 +4,7 @@ class R {
   static LottieFiles lottie = LottieFiles();
   static AudioFiles audio = AudioFiles();
   static Placeholders placeholders = Placeholders();
+  static BuildMode buildMode = BuildMode();
 }
 
 class Placeholders {
@@ -32,4 +33,8 @@ class LottieFiles {
 class AudioFiles {
   String splashBreeze = "assets/sounds/wind.mp3";
   String welcomeTone = "assets/sounds/point.mp3";
+}
+
+class BuildMode{
+  bool isTesting = false;
 }

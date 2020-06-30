@@ -40,16 +40,15 @@ class DisplayPic extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(200),
-      child: CachedNetworkImage(
-        imageUrl: R.placeholders.johDoeImage,
-        placeholder: (context, url) => const CircularProgressIndicator(),
-        errorWidget: (context, url, error) => Icon(Icons.error),
-        height: height,
-        width: width,
-      ),
+      child: R.buildMode.isTesting
+          ? Container()
+          : CachedNetworkImage(
+              imageUrl: R.placeholders.johDoeImage,
+              placeholder: (context, url) => const CircularProgressIndicator(),
+              errorWidget: (context, url, error) => Icon(Icons.error),
+              height: height,
+              width: width,
+            ),
     );
   }
 }
-
-AppBar homeAppbar =
-    AppBar(title: const AppbarContent(), automaticallyImplyLeading: false);

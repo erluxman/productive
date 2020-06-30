@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
 import 'package:productive/common/resources/r.dart';
-import 'package:productive/playground/test_main.dart';
+import 'package:productive/features/home/widgets/home_screen.dart';
 import 'package:productive/utils/animation/animated_scale_button.dart';
 import 'package:productive/utils/extensions/gradient_extensions.dart';
 import 'package:productive/utils/extensions/navigation_extension.dart';
@@ -62,7 +62,7 @@ class SplashScreenBody extends StatelessWidget {
         ScaleOnPressWidget(
             key: const Key("login"),
             onTap: () {
-              context.navigateTo(Screen1(), replace: true);
+              context.navigateTo(const HomeScreen(), replace: true);
             },
             outerPadding: const EdgeInsets.symmetric(horizontal: 48.0),
             innerPadding:
