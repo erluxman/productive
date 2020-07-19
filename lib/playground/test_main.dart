@@ -4,8 +4,6 @@ import 'package:productive/features/home/widgets/home_screen.dart';
 
 import '../utils/extensions/navigation_extension.dart';
 
-void main() => runApp(DummyApp());
-
 class DummyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
