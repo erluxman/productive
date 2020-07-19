@@ -7,7 +7,7 @@ import 'package:productive/features/home/widgets/home_bottom_nav_bar.dart';
 import 'package:productive/features/home/widgets/home_fab.dart';
 import 'package:productive/features/home/widgets/home_screen.dart';
 
-import '../../utils/widget/test_utils.dart';
+import '../../test_utils/test_utils.dart';
 
 void main() {
   group("All required widgets are on the Home screen", () {

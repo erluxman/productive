@@ -28,19 +28,12 @@ class Screen1 extends StatelessWidget {
               child: const Text("Go to screen2"),
             ),
             GestureDetector(
-              key:const Key("gd1"),
+              key: const Key("gd1"),
               onTap: () {
                 context.navigateTo(Screen2());
               },
-              child:const Text("Jump to screen2"),
+              child: const Text("Jump to screen2"),
             ),
-            GestureDetector(
-              key:const Key("gotohome"),
-              onTap: () {
-                context.navigateTo(const HomeScreen());
-              },
-              child:const Text("Jump to home"),
-            )
           ],
         ),
       ),

@@ -5,7 +5,7 @@ import 'package:productive/common/resources/r.dart';
 import 'package:productive/features/home/widgets/home_screen.dart';
 import 'package:productive/playground/test_main.dart';
 
-import '../utils/widget/test_utils.dart';
+import '../test_utils/test_utils.dart';
 
 void main() {
   group("Dummy widget test", () {

@@ -6,7 +6,7 @@ import 'package:productive/features/home/widgets/home_body.dart';
 import 'package:productive/features/home/widgets/home_fab.dart';
 import 'package:productive/features/splash/splash_screen.dart';
 import 'package:productive/utils/animation/animated_scale.dart';
-import '../../utils/widget/test_utils.dart';
+import '../../test_utils/test_utils.dart';
 
 void main() {
 
