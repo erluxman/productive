@@ -1,15 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:productive/features/home/widgets/home_screen.dart';
 
 import '../utils/extensions/navigation_extension.dart';
 
 class DummyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Screen1(),
-    );
+    return MaterialApp(home: Screen1(),);
   }
 }
 
