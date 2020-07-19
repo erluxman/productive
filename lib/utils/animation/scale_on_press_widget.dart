@@ -46,7 +46,6 @@ class _ScaleOnPressWidgetState extends State<ScaleOnPressWidget> {
       onTapUp: (_) => _unPress,
       onLongPress: _press,
       onLongPressUp: _unPress,
-      onSecondaryTapUp: (_) => _unPress,
       onDoubleTap: _press,
       onTap: widget.onTap,
       child: Padding(

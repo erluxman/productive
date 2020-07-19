@@ -12,7 +12,7 @@ void main() {
         final Widget blueFg = const Text("").withBlueGradientFg().testWidget;
         await tester.pumpWidget(blueFg);
         expect(find.byType(ShaderMask), findsOneWidget);
-        final Widget greyFg = const Text("").withBlueGradientFg().testWidget;
+        final Widget greyFg = const Text("").withGreyGradientFg().testWidget;
         await tester.pumpWidget(greyFg);
         expect(find.byType(ShaderMask), findsOneWidget);
       },

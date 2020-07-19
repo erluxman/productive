@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:productive/features/home/widgets/home_body.dart';
-import 'package:productive/utils/animation/animated_scale_button.dart';
+import 'package:productive/utils/animation/scale_on_press_widget.dart';
 
 import 'home_app_bar.dart';
 import 'home_bottom_nav_bar.dart';
