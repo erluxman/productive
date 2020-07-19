@@ -5,4 +5,6 @@ extension TestWidget on Widget {
       Directionality(textDirection: TextDirection.ltr, child: this);
 
   Widget get asScaffold => MaterialApp(home: this);
+
+  Widget get insideMaterialApp =>MaterialApp(home: Scaffold(body: this,));
 }
