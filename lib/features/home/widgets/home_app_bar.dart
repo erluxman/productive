@@ -45,7 +45,6 @@ class DisplayPic extends StatelessWidget {
           : CachedNetworkImage(
               imageUrl: R.placeholders.johDoeImage,
               placeholder: (context, url) => const CircularProgressIndicator(),
-              errorWidget: (context, url, error) => Icon(Icons.error),
               height: height,
               width: width,
             ),

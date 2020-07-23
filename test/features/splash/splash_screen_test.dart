@@ -6,22 +6,22 @@ import 'package:productive/features/home/widgets/home_body.dart';
 import 'package:productive/features/home/widgets/home_fab.dart';
 import 'package:productive/features/splash/splash_screen.dart';
 import 'package:productive/utils/animation/animated_scale.dart';
+
 import '../../test_utils/test_utils.dart';
 
 void main() {
-
   group("All required widgets are on the Splash screen", () {
-    setUpAll((){
+    setUpAll(() {
       R.buildMode.isTesting = true;
     });
 
-    tearDownAll((){
+    tearDownAll(() {
       R.buildMode.isTesting = false;
     });
     testWidgets(
       "There is Lottie Widget",
       (WidgetTester tester) async {
-        await tester.pumpWidget(const SplashScreen().asScaffold);
+        await tester.pumpWidget(SplashScreen().asScaffold);
         expect(find.byType(LottieBuilder), findsOneWidget);
       },
     );
@@ -29,7 +29,7 @@ void main() {
     testWidgets(
       "There is a Productive Text Logo",
       (WidgetTester tester) async {
-        await tester.pumpWidget(const SplashScreen().asScaffold);
+        await tester.pumpWidget(SplashScreen().asScaffold);
         expect(find.byType(ShaderMask), findsOneWidget);
         expect(find.text(R.string.appName), findsOneWidget);
       },
