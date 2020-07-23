@@ -39,14 +39,16 @@ void main() {
     testWidgets(
       "There is a Google Sign in Button",
       (WidgetTester tester) async {
-        await tester.pumpWidget(const SplashScreen().asScaffold);
+        // ignore: prefer_const_constructors
+        await tester.pumpWidget(SplashScreenBody().asScaffold);
         expect(find.byType(AnimatedScale), findsOneWidget);
         expect(find.text(R.string.loginWithGoogle), findsOneWidget);
       },
     );
 
     testWidgets("Can navigate to HomeScreen", (WidgetTester tester) async {
-      await tester.pumpWidget(const SplashScreen().asScaffold);
+      // ignore: prefer_const_constructors
+      await tester.pumpWidget( SplashScreenBody().insideMaterialApp);
       final loginButton = find.byKey(const Key("login"));
       expect(loginButton, findsOneWidget);
       await tester.tap(loginButton);

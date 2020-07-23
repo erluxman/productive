@@ -59,18 +59,25 @@ class SplashScreenBody extends StatelessWidget {
           style: TextStyle(fontWeight: FontWeight.w700, fontSize: 64),
         ).withBlueGradientFg(),
         const Spacer(flex: 5),
-        ScaleOnPressWidget(
-            key: const Key("login"),
-            onTap: () {
-              context.navigateTo(const HomeScreen(), replace: true);
-            },
-            outerPadding: const EdgeInsets.symmetric(horizontal: 48.0),
-            innerPadding:
-                const EdgeInsets.only(top: 12, bottom: 8, left: 12, right: 12),
-            child: const SignInWithGoogleButton()),
+        GoogleSignInButton(),
         const Spacer(flex: 2)
       ],
     );
+  }
+}
+
+class GoogleSignInButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ScaleOnPressWidget(
+        key: const Key("login"),
+        onTap: () {
+          context.navigateTo(const HomeScreen(), replace: true);
+        },
+        outerPadding: const EdgeInsets.symmetric(horizontal: 48.0),
+        innerPadding:
+            const EdgeInsets.only(top: 12, bottom: 8, left: 12, right: 12),
+        child: const SignInWithGoogleButton());
   }
 }
 
