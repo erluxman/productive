@@ -14,6 +14,8 @@ dependencies:
   google_fonts: ^1.1.0
   flutter_svg: ^0.17.4
   lottie: ^0.4.0+1
+  preview: ^0.0.8
+  cached_network_image: ^2.2.0+1
 
   #Architecture
   rxdart: ^0.24.1
@@ -22,6 +24,7 @@ dependencies:
 
   #Utils
   dartx: ^0.4.2
+  assets_audio_player: ^2.0.6+4
 
 dev_dependencies:
   flutter_test:
@@ -33,6 +36,7 @@ flutter:
   assets:
     - assets/lottie/
     - assets/images/
+    - assets/sounds/
 
   fonts:
     - family: Product Sans
@@ -43,10 +47,3 @@ flutter:
           style: italic
         - asset: assets/fonts/Product_Sans_Bold_Italic.ttf
           style: italic
-
-
-
-# fonts Balsamiq+Sans, Poppins, Tenali, Rubik, Patrick Hand, Lobster two, Handlee, El Messiri, Alice,
-# Amaranth, Comic neue, Jost, Capriola, Combo, Reem Kufi, Cabin Sketch,Caladea,Cinzel, Cousard,Sen,
-# Delius, Metrophobic,Pompiere, Gabriela,Kurale,Vioada Libre,Amarante,Soloway,
-
