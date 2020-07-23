@@ -77,25 +77,16 @@ class GoogleSignInButton extends StatelessWidget {
         outerPadding: const EdgeInsets.symmetric(horizontal: 48.0),
         innerPadding:
             const EdgeInsets.only(top: 12, bottom: 8, left: 12, right: 12),
-        child: const SignInWithGoogleButton());
-  }
-}
-
-class SignInWithGoogleButton extends StatelessWidget {
-  const SignInWithGoogleButton({Key key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        SvgPicture.asset(R.svg.googleIcon),
-        const SizedBox(width: 16),
-        Text(
-          R.string.loginWithGoogle,
-          style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),
-        ),
-      ],
-    );
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            SvgPicture.asset(R.svg.googleIcon),
+            const SizedBox(width: 16),
+            Text(
+              R.string.loginWithGoogle,
+              style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),
+            ),
+          ],
+        ));
   }
 }
