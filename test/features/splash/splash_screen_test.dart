@@ -21,9 +21,8 @@ void main() {
     testWidgets(
       "There is Lottie Widget",
       (WidgetTester tester) async {
-        await tester.pumpWidget(const SplashScreen(
-          key: ValueKey("Hello"),
-        ).asScaffold);
+        // ignore: prefer_const_constructors
+        await tester.pumpWidget(SplashScreen().asScaffold);
         expect(find.byType(LottieBuilder), findsOneWidget);
       },
     );
