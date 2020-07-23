@@ -21,7 +21,8 @@ void main() {
     testWidgets(
       "There is Lottie Widget",
       (WidgetTester tester) async {
-        await tester.pumpWidget(SplashScreen().asScaffold);
+        const splash =  SplashScreen();
+        await tester.pumpWidget(splash.asScaffold);
         expect(find.byType(LottieBuilder), findsOneWidget);
       },
     );
@@ -29,8 +30,8 @@ void main() {
     testWidgets(
       "There is a Productive Text Logo",
       (WidgetTester tester) async {
-        await tester.pumpWidget(SplashScreen().asScaffold);
-        expect(find.byType(ShaderMask), findsOneWidget);
+        const splash =  SplashScreen();
+        await tester.pumpWidget(splash.asScaffold);
         expect(find.text(R.string.appName), findsOneWidget);
       },
     );
