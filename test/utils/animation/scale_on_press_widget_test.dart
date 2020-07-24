@@ -12,7 +12,9 @@ void main() {
       await tester.pumpWidget(scaledIcon);
       expect(find.byType(GestureDetector), findsOneWidget);
       await tester.press(find.byType(GestureDetector));
+      await tester.pumpAndSettle();
       await tester.longPress(find.byType(GestureDetector));
+      await tester.pumpAndSettle();
     });
   });
 }

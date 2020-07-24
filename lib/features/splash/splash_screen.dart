@@ -59,36 +59,34 @@ class SplashScreenBody extends StatelessWidget {
           style: TextStyle(fontWeight: FontWeight.w700, fontSize: 64),
         ).withBlueGradientFg(),
         const Spacer(flex: 5),
-        ScaleOnPressWidget(
-            key: const Key("login"),
-            onTap: () {
-              context.navigateTo(const HomeScreen(), replace: true);
-            },
-            outerPadding: const EdgeInsets.symmetric(horizontal: 48.0),
-            innerPadding:
-                const EdgeInsets.only(top: 12, bottom: 8, left: 12, right: 12),
-            child: const SignInWithGoogleButton()),
+        GoogleSignInButton(),
         const Spacer(flex: 2)
       ],
     );
   }
 }
 
-class SignInWithGoogleButton extends StatelessWidget {
-  const SignInWithGoogleButton({Key key}) : super(key: key);
-
+class GoogleSignInButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        SvgPicture.asset(R.svg.googleIcon),
-        const SizedBox(width: 16),
-        Text(
-          R.string.loginWithGoogle,
-          style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),
-        ),
-      ],
-    );
+    return ScaleOnPressWidget(
+        key: const Key("login"),
+        onTap: () {
+          context.navigateTo(const HomeScreen(), replace: true);
+        },
+        outerPadding: const EdgeInsets.symmetric(horizontal: 48.0),
+        innerPadding:
+            const EdgeInsets.only(top: 12, bottom: 8, left: 12, right: 12),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            SvgPicture.asset(R.svg.googleIcon),
+            const SizedBox(width: 16),
+            Text(
+              R.string.loginWithGoogle,
+              style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),
+            ),
+          ],
+        ));
   }
 }
