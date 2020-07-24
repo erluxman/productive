@@ -4,7 +4,7 @@ import 'package:productive/common/resources/r.dart';
 import 'package:productive/features/home/widgets/animated_circle_progress.dart';
 
 void main() {
-  group("All required widgets are on the Splash screen", () {
+  group("Test Animated Motivation Meter", () {
     setUpAll(() {
       R.buildMode.isTesting = true;
     });
@@ -20,4 +20,6 @@ void main() {
       expect(find.byType(CustomPaint), findsNWidgets(1));
     });
   });
+
+
 }
