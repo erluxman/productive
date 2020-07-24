@@ -36,7 +36,6 @@ class _ScaleOnPressWidgetState extends State<ScaleOnPressWidget> {
   Widget build(BuildContext context) {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
-      onLongPressUp: () => _updatePressed(false),
       onLongPress: () => _updatePressed(true),
       onTapDown: (_) => _updatePressed(true),
       onTapUp: (_) => _updatePressed(false),
