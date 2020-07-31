@@ -1,8 +1,10 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:productive/common/resources/r.dart';
 import 'package:productive/features/home/widgets/animated_circle_progress.dart';
 import 'package:productive/features/home/widgets/animated_nav_button.dart';
+import 'package:productive/features/home/widgets/home_app_bar.dart';
 
 import '../../test_utils/test_utils.dart';
 
@@ -85,5 +87,19 @@ void main() {
       await tester.longPress(find.byKey(const Key("second_icon")));
       await tester.pumpAndSettle();
     });
+  });
+
+  group("Test home Appbar", () {
+    testWidgets("HomeAppbar contains DisplayPic Widget",
+        (WidgetTester tester) async {
+          // ignore: prefer_const_constructors
+          await tester.pumpWidget(AppbarContent().asScaffold);
+          expect(find.byType(DisplayPic), findsOneWidget);
+
+          // ignore: prefer_const_constructors
+          await tester.pumpWidget(DisplayPic().asScaffold);
+          expect(find.byType(ClipRRect), findsOneWidget);
+          expect(find.byType(CachedNetworkImage), findsOneWidget);
+        });
   });
 }
