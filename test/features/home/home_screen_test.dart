@@ -14,7 +14,7 @@ void main() {
     testWidgets(
       "Fab,BottomNav and AppbarContent exist",
       (WidgetTester tester) async {
-        await tester.pumpWidget(const HomeScreen().asScaffold);
+        await tester.pumpWidget(HomeScreen().asScaffold);
         expect(find.byType(Fab), findsOneWidget);
         expect(find.byType(RaisedButton), findsOneWidget);
         expect(find.byType(BottomNav), findsOneWidget);
@@ -27,4 +27,3 @@ void main() {
     );
   });
 }
-

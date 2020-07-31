@@ -6,6 +6,8 @@ import 'package:productive/features/home/widgets/animated_circle_progress.dart';
 import 'package:productive/features/home/widgets/home_app_bar.dart';
 import 'package:productive/features/home/widgets/home_body.dart';
 import 'package:productive/features/home/widgets/home_bottom_nav_bar.dart';
+import 'package:productive/features/home/widgets/home_fab.dart';
+import 'package:productive/features/home/widgets/home_screen.dart';
 
 import '../../test_utils/test_utils.dart';
 
@@ -67,6 +69,14 @@ void main() {
       // ignore: prefer_const_constructors
       await tester.pumpWidget(HomeBody().asScaffold);
       expect(find.text(R.string.appName), findsOneWidget);
+    });
+  });
+
+  group("Test Home Fab", () {
+    testWidgets("Home Body contains App Name", (WidgetTester tester) async {
+      // ignore: prefer_const_constructors
+      await tester.pumpWidget(Fab().insideMaterialApp);
+      await tester.press(find.byKey(const Key("home_fab")));
     });
   });
 }
