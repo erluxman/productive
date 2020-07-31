@@ -52,6 +52,7 @@ void main() {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           AnimatedNavIcon(
+            key: const Key("first_icon"),
             navState: state,
             select: () => select(0),
             unTouch: () => unTouch,
@@ -63,6 +64,7 @@ void main() {
             ),
           ),
           AnimatedNavIcon(
+            key: const Key("second_icon"),
             navState: state,
             select: () => select(1),
             unTouch: () => unTouch,
@@ -78,10 +80,10 @@ void main() {
       await tester.pumpWidget(navBar.asScaffold);
       expect(find.byType(GestureDetector), findsNWidgets(2));
 
-//      await tester.press(find.byType(GestureDetector));
-//      await tester.pumpAndSettle();
-//      await tester.longPress(find.byType(GestureDetector));
-//      await tester.pumpAndSettle();
+      await tester.press(find.byKey(const Key("first_icon")));
+      await tester.pumpAndSettle();
+      await tester.longPress(find.byKey(const Key("second_icon")));
+      await tester.pumpAndSettle();
     });
   });
 }
