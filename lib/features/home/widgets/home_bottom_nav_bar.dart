@@ -63,6 +63,7 @@ class _BottomNavState extends State<BottomNav> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               AnimatedNavIcon(
+                key: const Key("first_icon"),
                 navState: navState,
                 select: _selectHome,
                 unTouch: _unTouch,
@@ -74,6 +75,7 @@ class _BottomNavState extends State<BottomNav> {
                 ),
               ),
               AnimatedNavIcon(
+                key: const Key("second_icon"),
                 navState: navState,
                 select: _selectStats,
                 unTouch: _unTouch,

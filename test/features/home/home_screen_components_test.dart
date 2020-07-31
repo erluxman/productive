@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:productive/common/resources/r.dart';
 import 'package:productive/features/home/widgets/animated_circle_progress.dart';
-import 'package:productive/features/home/widgets/animated_nav_button.dart';
 import 'package:productive/features/home/widgets/home_app_bar.dart';
+import 'package:productive/features/home/widgets/home_body.dart';
+import 'package:productive/features/home/widgets/home_bottom_nav_bar.dart';
 
 import '../../test_utils/test_utils.dart';
 
@@ -26,7 +27,7 @@ void main() {
     });
   });
 
-  group("Test Animated Nav Button", () {
+  group("Test Animated Nav Bar", () {
     setUpAll(() {
       R.buildMode.isTesting = true;
     });
@@ -37,49 +38,7 @@ void main() {
 
     testWidgets("gestures are working", (WidgetTester tester) async {
       // ignore: prefer_const_constructors
-      NavButtonsState state = NavButtonsState();
-      void select(int index) {
-        state = state.copyWith(selectedIndex: 1);
-      }
-
-      void touch(int index) {
-        state = state.copyWith(pressedIndex: 1);
-      }
-
-      void unTouch() {
-        state = state.copyWith(pressedIndex: -1);
-      }
-
-      final navBar = Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          AnimatedNavIcon(
-            key: const Key("first_icon"),
-            navState: state,
-            select: () => select(0),
-            unTouch: () => unTouch,
-            touch: () => touch(0),
-            child: NavIcon(
-              position: 0,
-              svgPath: R.svg.homeIcon,
-              navState: state,
-            ),
-          ),
-          AnimatedNavIcon(
-            key: const Key("second_icon"),
-            navState: state,
-            select: () => select(1),
-            unTouch: () => unTouch,
-            touch: () => touch(1),
-            child: NavIcon(
-              position: 1,
-              svgPath: R.svg.statsIcon,
-              navState: state,
-            ),
-          ),
-        ],
-      );
-      await tester.pumpWidget(navBar.asScaffold);
+      await tester.pumpWidget(BottomNav().insideMaterialApp);
       expect(find.byType(GestureDetector), findsNWidgets(2));
 
       await tester.press(find.byKey(const Key("first_icon")));
@@ -92,14 +51,22 @@ void main() {
   group("Test home Appbar", () {
     testWidgets("HomeAppbar contains DisplayPic Widget",
         (WidgetTester tester) async {
-          // ignore: prefer_const_constructors
-          await tester.pumpWidget(AppbarContent().asScaffold);
-          expect(find.byType(DisplayPic), findsOneWidget);
+      // ignore: prefer_const_constructors
+      await tester.pumpWidget(AppbarContent().asScaffold);
+      expect(find.byType(DisplayPic), findsOneWidget);
 
-          // ignore: prefer_const_constructors
-          await tester.pumpWidget(DisplayPic().asScaffold);
-          expect(find.byType(ClipRRect), findsOneWidget);
-          expect(find.byType(CachedNetworkImage), findsOneWidget);
-        });
+      // ignore: prefer_const_constructors
+      await tester.pumpWidget(DisplayPic().asScaffold);
+      expect(find.byType(ClipRRect), findsOneWidget);
+      expect(find.byType(CachedNetworkImage), findsOneWidget);
+    });
+  });
+
+  group("Test Home Body", () {
+    testWidgets("Home Body contains App Name", (WidgetTester tester) async {
+      // ignore: prefer_const_constructors
+      await tester.pumpWidget(HomeBody().asScaffold);
+      expect(find.text(R.string.appName), findsOneWidget);
+    });
   });
 }
