@@ -81,7 +81,7 @@ void main() {
     testWidgets("Home Body contains App Name", (WidgetTester tester) async {
       // ignore: prefer_const_constructors
       await tester.pumpWidget(Fab().insideMaterialApp);
-      await tester.tap(find.byKey(const Key("home_fab")));
+      await tester.press(find.byKey(const Key("home_fab")));
       await tester.pumpAndSettle();
     });
   });
