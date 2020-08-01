@@ -76,6 +76,7 @@ void main() {
       // ignore: prefer_const_constructors
       await tester.pumpWidget(Fab().insideMaterialApp);
       await tester.press(find.byKey(const Key("home_fab")));
+      await tester.pumpAndSettle();
     });
   });
 }
