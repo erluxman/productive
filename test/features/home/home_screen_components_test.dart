@@ -6,7 +6,6 @@ import 'package:productive/features/home/widgets/animated_circle_progress.dart';
 import 'package:productive/features/home/widgets/home_app_bar.dart';
 import 'package:productive/features/home/widgets/home_body.dart';
 import 'package:productive/features/home/widgets/home_bottom_nav_bar.dart';
-import 'package:productive/features/home/widgets/home_fab.dart';
 import 'package:productive/features/home/widgets/home_screen.dart';
 
 import '../../test_utils/test_utils.dart';
