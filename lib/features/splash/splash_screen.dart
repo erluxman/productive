@@ -72,7 +72,7 @@ class GoogleSignInButton extends StatelessWidget {
     return ScaleOnPressWidget(
         key: const Key("login"),
         onTap: () {
-          context.navigateTo(const HomeScreen(), replace: true);
+          context.navigateTo(HomeScreen(), replace: true);
         },
         outerPadding: const EdgeInsets.symmetric(horizontal: 48.0),
         innerPadding:

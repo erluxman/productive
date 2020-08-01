@@ -26,11 +26,7 @@ class ScaleOnPressWidget extends StatefulWidget {
 class _ScaleOnPressWidgetState extends State<ScaleOnPressWidget> {
   bool isPressed = false;
 
-  void _unPress() => _update(false);
-
-  void _press() => _update(true);
-
-  void _update(bool pressed) {
+  void _updatePressed(bool pressed) {
     setState(() {
       isPressed = pressed;
     });
@@ -40,12 +36,9 @@ class _ScaleOnPressWidgetState extends State<ScaleOnPressWidget> {
   Widget build(BuildContext context) {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
-      onLongPressStart: (_) => _press,
-      onTapDown: (_) => _press,
-      onTapUp: (_) => _unPress,
-      onLongPress: _press,
-      onLongPressUp: _unPress,
-      onDoubleTap: _press,
+      onLongPress: () => _updatePressed(true),
+      onTapDown: (_) => _updatePressed(true),
+      onTapUp: (_) => _updatePressed(false),
       onTap: widget.onTap,
       child: Padding(
         padding: widget.outerPadding,

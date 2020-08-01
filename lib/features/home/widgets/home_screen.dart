@@ -7,7 +7,6 @@ import 'home_bottom_nav_bar.dart';
 import 'home_fab.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen();
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +17,6 @@ class HomeScreen extends StatelessWidget {
       floatingActionButton: const Padding(
         padding: EdgeInsets.symmetric(horizontal: 2, vertical: 2),
         child: ScaleOnPressWidget(
-          key: Key("home_fab"),
           child: Fab(),
         ),
       ),

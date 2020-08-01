@@ -26,11 +26,7 @@ class _BottomNavState extends State<BottomNav> {
     });
   }
 
-  void _selectHome() => _selectPage(0);
-
   void _touchHomeIcon() => _touchIcon(0);
-
-  void _selectStats() => _selectPage(1);
 
   void _touchStatsIcon() => _touchIcon(1);
 
@@ -63,8 +59,9 @@ class _BottomNavState extends State<BottomNav> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               AnimatedNavIcon(
+                key: const Key("first_icon"),
                 navState: navState,
-                select: _selectHome,
+                select: () => _selectPage(0),
                 unTouch: _unTouch,
                 touch: _touchHomeIcon,
                 child: NavIcon(
@@ -74,8 +71,9 @@ class _BottomNavState extends State<BottomNav> {
                 ),
               ),
               AnimatedNavIcon(
+                key: const Key("second_icon"),
                 navState: navState,
-                select: _selectStats,
+                select: () => _selectPage(1),
                 unTouch: _unTouch,
                 touch: _touchStatsIcon,
                 child: NavIcon(

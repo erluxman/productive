@@ -10,6 +10,7 @@ class Fab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RaisedButton(
+      key: const Key("home_fab"),
       color: Colors.transparent,
       splashColor: Colors.transparent,
       onPressed: () {
