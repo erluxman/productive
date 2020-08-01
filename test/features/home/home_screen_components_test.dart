@@ -44,7 +44,11 @@ void main() {
 
       await tester.press(find.byKey(const Key("first_icon")));
       await tester.pumpAndSettle();
+      await tester.tap(find.byKey(const Key("first_icon")));
+      await tester.pumpAndSettle();
       await tester.longPress(find.byKey(const Key("second_icon")));
+      await tester.pumpAndSettle();
+      await tester.tap(find.byKey(const Key("second_icon")));
       await tester.pumpAndSettle();
     });
   });
