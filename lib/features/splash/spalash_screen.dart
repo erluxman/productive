@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    context.navigateTo(const HomeScreen(), delay: 2.seconds);
+    context.navigateTo(const HomeScreen(), delay: 20.seconds);
   }
 
   @override
